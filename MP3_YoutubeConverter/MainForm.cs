@@ -15,13 +15,16 @@ namespace MP3_YoutubeConverter
         public MainForm()
         {
             InitializeComponent();
+
+            UploadURLControl URLControl = new UploadURLControl();
+            addUserControl(URLControl);
         }
 
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(userControl);
+            panelContainer.Controls.Clear();
+            panelContainer.Controls.Add(userControl);
             userControl.BringToFront();
         }
     }
