@@ -20,8 +20,8 @@ namespace MP3_YoutubeConverter
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
-            panelContainer.Controls.Clear();
-            panelContainer.Controls.Add(userControl);
+            mainPanel.Controls.Clear();
+            mainPanel.Controls.Add(userControl);
             userControl.BringToFront();
         }
     }
