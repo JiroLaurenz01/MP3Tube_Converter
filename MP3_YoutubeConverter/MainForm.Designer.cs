@@ -101,9 +101,9 @@
             this.panelContainer.BackColor = System.Drawing.Color.Transparent;
             this.panelContainer.BorderRadius = 10;
             this.panelContainer.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panelContainer.Location = new System.Drawing.Point(31, 141);
+            this.panelContainer.Location = new System.Drawing.Point(12, 141);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(765, 270);
+            this.panelContainer.Size = new System.Drawing.Size(803, 283);
             this.panelContainer.TabIndex = 0;
             // 
             // guna2HtmlLabel1
