@@ -75,7 +75,7 @@
             this.guna2ContainerControl1.Controls.Add(this.guna2ControlBox2);
             this.guna2ContainerControl1.Controls.Add(this.guna2ControlBox1);
             this.guna2ContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl1.FillColor = System.Drawing.SystemColors.ActiveCaption;
+            this.guna2ContainerControl1.FillColor = System.Drawing.Color.SteelBlue;
             this.guna2ContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Size = new System.Drawing.Size(827, 31);
@@ -90,19 +90,20 @@
             this.mainPanel.Controls.Add(this.guna2HtmlLabel1);
             this.mainPanel.Controls.Add(this.panelContainer);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.mainPanel.FillColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(827, 506);
+            this.mainPanel.Size = new System.Drawing.Size(827, 436);
             this.mainPanel.TabIndex = 1;
             // 
             // panelContainer
             // 
-            this.panelContainer.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelContainer.Location = new System.Drawing.Point(0, 137);
+            this.panelContainer.BackColor = System.Drawing.Color.Transparent;
+            this.panelContainer.BorderRadius = 10;
+            this.panelContainer.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panelContainer.Location = new System.Drawing.Point(31, 141);
             this.panelContainer.Name = "panelContainer";
-            this.panelContainer.Size = new System.Drawing.Size(827, 369);
+            this.panelContainer.Size = new System.Drawing.Size(765, 270);
             this.panelContainer.TabIndex = 0;
             // 
             // guna2HtmlLabel1
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 537);
+            this.ClientSize = new System.Drawing.Size(827, 467);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.guna2ContainerControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

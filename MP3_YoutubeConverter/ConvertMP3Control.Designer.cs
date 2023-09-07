@@ -48,7 +48,7 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Name = "ConvertMP3Control";
-            this.Size = new System.Drawing.Size(765, 369);
+            this.Size = new System.Drawing.Size(765, 270);
             this.ResumeLayout(false);
             this.PerformLayout();
 
