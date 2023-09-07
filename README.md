@@ -9,10 +9,6 @@ MP3Tube Converter is a user-friendly application built using C# WinForms and pow
 - Intuitive and visually appealing user interface.
 - Free to use without any hidden costs.
 
-## Screenshots
-
-[Add screenshots or images of your application here]
-
 ## Dependencies
 
 - Guna.UI2.WinForms by Sobatdata, Ilham Mutaqin, Russell Chidhakwa for UI/UX design.
