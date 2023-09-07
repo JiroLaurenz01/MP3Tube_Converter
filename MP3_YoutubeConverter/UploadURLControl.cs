@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MP3_YoutubeConverter
 {
-    public partial class Form1 : Form
+    public partial class UploadURLControl : UserControl
     {
-        public Form1()
+        public UploadURLControl()
         {
             InitializeComponent();
         }
