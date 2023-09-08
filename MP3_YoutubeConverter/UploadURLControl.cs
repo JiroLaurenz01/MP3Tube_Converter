@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
+using TheArtOfDevHtmlRenderer.Adapters;
 
 namespace MP3_YoutubeConverter
 {
@@ -63,7 +64,7 @@ namespace MP3_YoutubeConverter
             AccessTheYoutubeService(videoId);
         }
 
-        #endregion
+        #endregion     
 
         #region FUNCTION TO RESIZE THE MAIN FORM
 
@@ -182,5 +183,17 @@ namespace MP3_YoutubeConverter
         }
 
         #endregion
+
+        private void convertBtn_Click(object sender, EventArgs e)
+        {
+            // Get a reference to the MainForm if it exists.
+            MainForm mainForm = Application.OpenForms.OfType<MainForm>().FirstOrDefault();
+
+            if (mainForm != null)
+            {
+                ConvertMP3Control convertMP3Control = new ConvertMP3Control();
+                mainForm.addUserControl(convertMP3Control);
+            }
+        }
     }
 }

@@ -33,7 +33,7 @@
             this.browseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.convertBtn = new Guna.UI2.WinForms.Guna2Button();
             this.titleBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.thumbnailBox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.youtubeUrlTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -78,7 +78,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2Button2);
+            this.guna2ShadowPanel1.Controls.Add(this.convertBtn);
             this.guna2ShadowPanel1.Controls.Add(this.titleBox);
             this.guna2ShadowPanel1.Controls.Add(this.thumbnailBox);
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(230)))));
@@ -88,23 +88,24 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(680, 218);
             this.guna2ShadowPanel1.TabIndex = 7;
             // 
-            // guna2Button2
+            // convertBtn
             // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 5;
-            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.guna2Button2.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button2.Location = new System.Drawing.Point(457, 149);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(116, 35);
-            this.guna2Button2.TabIndex = 7;
-            this.guna2Button2.Text = "Convert";
+            this.convertBtn.BackColor = System.Drawing.Color.Transparent;
+            this.convertBtn.BorderRadius = 5;
+            this.convertBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.convertBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.convertBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.convertBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.convertBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.convertBtn.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.convertBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F);
+            this.convertBtn.ForeColor = System.Drawing.Color.SteelBlue;
+            this.convertBtn.Location = new System.Drawing.Point(457, 149);
+            this.convertBtn.Name = "convertBtn";
+            this.convertBtn.Size = new System.Drawing.Size(116, 35);
+            this.convertBtn.TabIndex = 7;
+            this.convertBtn.Text = "Convert";
+            this.convertBtn.Click += new System.EventHandler(this.convertBtn_Click);
             // 
             // titleBox
             // 
@@ -206,6 +207,6 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2TextBox titleBox;
         private Guna.UI2.WinForms.Guna2PictureBox thumbnailBox;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button convertBtn;
     }
 }
