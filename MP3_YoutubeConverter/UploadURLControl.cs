@@ -82,40 +82,47 @@ namespace MP3_YoutubeConverter
 
         #endregion
 
+        #region FUNCTIONS TO ACCESS THE YOUTUBE SERVICE TO GET THE THUMBNAIL AND TITLE
+
         private async void AccessTheYoutubeService(string videoId)
         {
-            // Check if the video ID is not empty.
-            if (!string.IsNullOrEmpty(videoId))
+            // Create a request to retrieve video details (snippet) from YouTube.
+            var videoRequest = youtubeService.Videos.List("snippet");
+
+            // Set the video ID in the request.
+            videoRequest.Id = videoId;
+
+            // Execute the video request asynchronously and await the response.
+            var videoResponse = await videoRequest.ExecuteAsync();
+
+            // Check if there are video items in the response.
+            if (videoResponse.Items.Count > 0)
             {
-                var videoRequest = youtubeService.Videos.List("snippet");
-                videoRequest.Id = videoId;
+                // Get the URL of the video's max resolution thumbnail.
+                // Get the video title from the response.
+                string thumbnailUrl = videoResponse.Items[0].Snippet.Thumbnails.Maxres.Url;
+                string videoTitle = videoResponse.Items[0].Snippet.Title;
 
-                var videoResponse = await videoRequest.ExecuteAsync();
+                // Load the video thumbnail asynchronously.
+                await LoadImageAsync(thumbnailUrl);
 
-                if (videoResponse.Items.Count > 0)
-                {
-                    string thumbnailUrl = videoResponse.Items[0].Snippet.Thumbnails.Maxres.Url;
-                    string videoTitle = videoResponse.Items[0].Snippet.Title;
-
-                    await LoadImageAsync(thumbnailUrl);
-
-                    // Display the title and duration
-                    titleBox.Text = videoTitle;
-                }
+                // Display the video title in the titleBox control.
+                titleBox.Text = videoTitle;
             }
-            else
-                MessageBox.Show("Invalid YouTube URL.");
         }
 
         private string GetVideoId(string url)
         {
-            // Extract the video ID from the YouTube URL
+            // Extract the video ID from the YouTube URL.
             if (url.Contains("youtube.com"))
             {
                 try
                 {
+                    // Parse the URL to extract the query string.
                     var uri = new Uri(url);
                     var query = uri.Query;
+
+                    // Use the query string to get the video ID.
                     var videoId = System.Web.HttpUtility.ParseQueryString(query).Get("v");
                     return videoId;
                 }
@@ -128,6 +135,7 @@ namespace MP3_YoutubeConverter
             {
                 try
                 {
+                    // Extract the video ID from the shortened URL.
                     var uri = new Uri(url);
                     return uri.Segments[1];
                 }
@@ -141,27 +149,32 @@ namespace MP3_YoutubeConverter
 
         private async Task LoadImageAsync(string thumbnailUrl)
         {
-            // Assuming thumbnailUrl is the URL of the retrieved thumbnail
+            // Use a WebClient to download the thumbnail image asynchronously.
             using (var webClient = new WebClient())
             {
                 try
                 {
+                    // Download the image as a byte array.
                     byte[] imageBytes = await webClient.DownloadDataTaskAsync(thumbnailUrl);
 
+                    // Create a MemoryStream from the downloaded bytes.
                     using (var memoryStream = new MemoryStream(imageBytes))
                     {
-                        // Load the image into a temporary variable
+                        // Load the image from the MemoryStream.
                         var tempImage = Image.FromStream(memoryStream);
 
+                        // Set the loaded image as the thumbnailBox's image.
                         thumbnailBox.Image = tempImage;
                     }
                 }
                 catch (Exception ex)
                 {
+                    // Display an error message if image loading fails.
                     MessageBox.Show($"Failed to load image: {ex.Message}");
                 }
             }
         }
 
+        #endregion
     }
 }
