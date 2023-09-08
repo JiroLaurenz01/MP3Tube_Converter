@@ -45,7 +45,7 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(230)))));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.SteelBlue;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(15, 20);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(180, 21);
@@ -56,6 +56,7 @@
             // 
             this.browseBtn.BackColor = System.Drawing.Color.Transparent;
             this.browseBtn.BorderRadius = 5;
+            this.browseBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.browseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.browseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.browseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -91,6 +92,7 @@
             // 
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -108,7 +110,7 @@
             // 
             this.titleBox.BorderThickness = 0;
             this.titleBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.titleBox.DefaultText = "How to Get YouTube API Key 2023 | Create YouTube API Key ( YouTube Data API v3 )";
+            this.titleBox.DefaultText = "";
             this.titleBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.titleBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.titleBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -133,6 +135,7 @@
             // thumbnailBox
             // 
             this.thumbnailBox.BorderRadius = 5;
+            this.thumbnailBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(230)))));
             this.thumbnailBox.ImageRotate = 0F;
             this.thumbnailBox.Location = new System.Drawing.Point(25, 20);
             this.thumbnailBox.Name = "thumbnailBox";
