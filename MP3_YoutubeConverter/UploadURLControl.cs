@@ -27,9 +27,15 @@ namespace MP3_YoutubeConverter
             // Initialize the YouTubeService with your API Key
             youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyDAuK-6Fyeper2Z55yEu88C-kEXdm-i4I4"
+                ApiKey = "AIzaSyBPWcBTuUHfwmClIZf4drsMc4KUVngKXGA"
             });
         }
+
+        #region FUNCTION TO RESET THE YOUTUBE URL TEXT BOX BY CLICKING THE RIGHT ICON
+
+        private void youtubeUrlTextBox_IconRightClick(object sender, EventArgs e) => youtubeUrlTextBox.Clear();
+
+        #endregion
 
         #region FUNCTION TO BROWSE THE YOUTUBE URL
 
@@ -53,9 +59,12 @@ namespace MP3_YoutubeConverter
                 return;
             }
 
-            ResizeMainForm();
+            LoadingScreenForm loadingScreenForm = new LoadingScreenForm();
+            loadingScreenForm.ShowDialog();
 
             AccessTheYoutubeService(videoId);
+
+            ResizeMainForm();
         }
 
         #endregion     
@@ -87,28 +96,37 @@ namespace MP3_YoutubeConverter
 
         private async void AccessTheYoutubeService(string videoId)
         {
-            // Create a request to retrieve video details (snippet) from YouTube.
-            var videoRequest = youtubeService.Videos.List("snippet");
-
-            // Set the video ID in the request.
-            videoRequest.Id = videoId;
-
-            // Execute the video request asynchronously and await the response.
-            var videoResponse = await videoRequest.ExecuteAsync();
-
-            // Check if there are video items in the response.
-            if (videoResponse.Items.Count > 0)
+            try
             {
-                // Get the URL of the video's max resolution thumbnail.
-                // Get the video title from the response.
-                string thumbnailUrl = videoResponse.Items[0].Snippet.Thumbnails.Maxres.Url;
-                string videoTitle = videoResponse.Items[0].Snippet.Title;
+                // Create a request to retrieve video details (snippet) from YouTube.
+                var videoRequest = youtubeService.Videos.List("snippet");
 
-                // Load the video thumbnail asynchronously.
-                await LoadImageAsync(thumbnailUrl);
+                // Set the video ID in the request.
+                videoRequest.Id = videoId;
 
-                // Display the video title in the titleBox control.
-                titleBox.Text = videoTitle;
+                // Execute the video request asynchronously and await the response.
+                var videoResponse = await videoRequest.ExecuteAsync();
+
+                // Check if there are video items in the response.
+                if (videoResponse.Items.Count > 0)
+                {
+                    // Get the URL of the video's max resolution thumbnail.
+                    // Get the video title from the response.
+                    string thumbnailUrl = videoResponse.Items[0].Snippet.Thumbnails.Maxres.Url;
+                    string videoTitle = videoResponse.Items[0].Snippet.Title;
+
+                    // Load the video thumbnail asynchronously.
+                    await LoadImageAsync(thumbnailUrl);
+
+                    // Display the video title in the titleBox control.
+                    titleBox.Text = videoTitle;
+                }
+                else
+                    MessageBox.Show("Video response is empty.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Video response failed: {ex.Message}");
             }
         }
 
@@ -177,6 +195,7 @@ namespace MP3_YoutubeConverter
         }
 
         #endregion
+
 
         private void convertBtn_Click(object sender, EventArgs e)
         {

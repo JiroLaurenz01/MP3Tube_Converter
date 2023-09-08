@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.guna2WinProgressIndicator1 = new Guna.UI2.WinForms.Guna2WinProgressIndicator();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.SuspendLayout();
             // 
             // guna2WinProgressIndicator1
@@ -46,24 +47,29 @@
             // 
             // timer
             // 
-            this.timer.Interval = 1500;
+            this.timer.Interval = 500;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 5;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // LoadingScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(200, 200);
             this.Controls.Add(this.guna2WinProgressIndicator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoadingScreenForm";
+            this.Opacity = 0.7D;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlashingScreenForm";
             this.TopMost = true;
-            this.TransparencyKey = System.Drawing.SystemColors.Desktop;
             this.Load += new System.EventHandler(this.LoadingScreenForm_Load);
             this.ResumeLayout(false);
 
@@ -73,5 +79,6 @@
 
         private Guna.UI2.WinForms.Guna2WinProgressIndicator guna2WinProgressIndicator1;
         private System.Windows.Forms.Timer timer;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
