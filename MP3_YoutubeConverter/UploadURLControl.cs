@@ -94,7 +94,7 @@ namespace MP3_YoutubeConverter
 
         #region FUNCTIONS TO ACCESS THE YOUTUBE SERVICE TO GET THE THUMBNAIL AND TITLE
 
-        private async void AccessTheYoutubeService(string videoId)
+        private async Task AccessTheYoutubeService(string videoId)
         {
             try
             {
@@ -108,7 +108,7 @@ namespace MP3_YoutubeConverter
                 var videoResponse = await videoRequest.ExecuteAsync();
 
                 // Check if there are video items in the response.
-                if (videoResponse.Items.Count > 0)
+                if (videoResponse != null && videoResponse.Items.Count > 0)
                 {
                     // Get the URL of the video's max resolution thumbnail.
                     // Get the video title from the response.
@@ -123,10 +123,15 @@ namespace MP3_YoutubeConverter
                 }
                 else
                     MessageBox.Show("Video response is empty.");
+
+            }
+            catch (Google.GoogleApiException ex)
+            {
+                MessageBox.Show($"Google API Exception: {ex.Error.Message}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Video response failed: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
 
@@ -196,7 +201,6 @@ namespace MP3_YoutubeConverter
 
         #endregion
 
-
         private void convertBtn_Click(object sender, EventArgs e)
         {
             // Get a reference to the MainForm if it exists.
@@ -204,6 +208,9 @@ namespace MP3_YoutubeConverter
 
             if (mainForm != null)
             {
+                LoadingScreenForm loadingScreenForm = new LoadingScreenForm();
+                loadingScreenForm.ShowDialog();
+
                 ConvertMP3Control convertMP3Control = new ConvertMP3Control();
                 mainForm.addUserControl(convertMP3Control);
             }
