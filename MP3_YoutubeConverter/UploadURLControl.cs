@@ -27,7 +27,7 @@ namespace MP3_YoutubeConverter
             // Initialize the YouTubeService with your API Key
             youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
-                ApiKey = "AIzaSyBPWcBTuUHfwmClIZf4drsMc4KUVngKXGA"
+                ApiKey = "AIzaSyCtmMTphze3U2xeGm6stIy2DEcN86zVsP0"
             });
         }
 
@@ -105,7 +105,7 @@ namespace MP3_YoutubeConverter
                 videoRequest.Id = videoId;
 
                 // Execute the video request asynchronously and await the response.
-                var videoResponse = await videoRequest.ExecuteAsync().ConfigureAwait(true);
+                var videoResponse = await videoRequest.ExecuteAsync();
 
                 // Check if there are video items in the response.
                 if (videoResponse.Items.Count > 0)
@@ -116,7 +116,7 @@ namespace MP3_YoutubeConverter
                     string videoTitle = videoResponse.Items[0].Snippet.Title;
 
                     // Load the video thumbnail asynchronously.
-                    await LoadImageAsync(thumbnailUrl).ConfigureAwait(true);
+                    await LoadImageAsync(thumbnailUrl);
 
                     // Display the video title in the titleBox control.
                     titleBox.Text = videoTitle;
@@ -129,7 +129,6 @@ namespace MP3_YoutubeConverter
                 MessageBox.Show($"Video response failed: {ex.Message}");
             }
         }
-
 
         private string GetVideoId(string url)
         {
