@@ -62,7 +62,7 @@ namespace MP3_YoutubeConverter
             LoadingScreenForm loadingScreenForm = new LoadingScreenForm();
             loadingScreenForm.ShowDialog();
 
-            AccessTheYoutubeService(videoId);
+            _ = AccessTheYoutubeServiceAsync(videoId);
 
             ResizeMainForm();
         }
@@ -94,7 +94,7 @@ namespace MP3_YoutubeConverter
 
         #region FUNCTIONS TO ACCESS THE YOUTUBE SERVICE TO GET THE THUMBNAIL AND TITLE
 
-        private async Task AccessTheYoutubeService(string videoId)
+        private async Task AccessTheYoutubeServiceAsync(string videoId)
         {
             try
             {
@@ -105,10 +105,10 @@ namespace MP3_YoutubeConverter
                 videoRequest.Id = videoId;
 
                 // Execute the video request asynchronously and await the response.
-                var videoResponse = await videoRequest.ExecuteAsync();
+                var videoResponse = await videoRequest.ExecuteAsync().ConfigureAwait(true);
 
                 // Check if there are video items in the response.
-                if (videoResponse != null && videoResponse.Items.Count > 0)
+                if (videoResponse.Items.Count > 0)
                 {
                     // Get the URL of the video's max resolution thumbnail.
                     // Get the video title from the response.
@@ -116,24 +116,20 @@ namespace MP3_YoutubeConverter
                     string videoTitle = videoResponse.Items[0].Snippet.Title;
 
                     // Load the video thumbnail asynchronously.
-                    await LoadImageAsync(thumbnailUrl);
+                    await LoadImageAsync(thumbnailUrl).ConfigureAwait(true);
 
                     // Display the video title in the titleBox control.
                     titleBox.Text = videoTitle;
                 }
                 else
                     MessageBox.Show("Video response is empty.");
-
-            }
-            catch (Google.GoogleApiException ex)
-            {
-                MessageBox.Show($"Google API Exception: {ex.Error.Message}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                MessageBox.Show($"Video response failed: {ex.Message}");
             }
         }
+
 
         private string GetVideoId(string url)
         {
@@ -201,6 +197,8 @@ namespace MP3_YoutubeConverter
 
         #endregion
 
+        #region FUNCTION FOR CONVERT BUTTON
+
         private void convertBtn_Click(object sender, EventArgs e)
         {
             // Get a reference to the MainForm if it exists.
@@ -212,8 +210,22 @@ namespace MP3_YoutubeConverter
                 loadingScreenForm.ShowDialog();
 
                 ConvertMP3Control convertMP3Control = new ConvertMP3Control();
+                convertMP3Control.YoutubeURL = youtubeUrlTextBox.Text;
+
+                mainForm.Size = new Size(mainForm.Size.Width, 303);
+                mainForm.panelContainer.Size = new Size(mainForm.panelContainer.Size.Width, 118);
+
+                mainForm.Location = new Point(
+                     (Screen.PrimaryScreen.WorkingArea.Width - mainForm.Width) / 2,
+                     (Screen.PrimaryScreen.WorkingArea.Height - mainForm.Height) / 2
+                 );
+                // Perform layout if needed.
+                mainForm.PerformLayout();
+
                 mainForm.addUserControl(convertMP3Control);
             }
         }
+
+        #endregion
     }
 }
