@@ -68,8 +68,8 @@ namespace MP3_YoutubeConverter
 
             if (mainForm != null)
             {
-                mainForm.Size = new Size(mainForm.Size.Width, 591);
-                mainForm.panelContainer.Size = new Size(mainForm.panelContainer.Size.Width, 406);
+                mainForm.Size = new Size(mainForm.Size.Width, 550);
+                mainForm.panelContainer.Size = new Size(mainForm.panelContainer.Size.Width, 365);
 
                 mainForm.Location = new Point(
                      (Screen.PrimaryScreen.WorkingArea.Width - mainForm.Width) / 2,
