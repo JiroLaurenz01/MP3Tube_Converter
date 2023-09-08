@@ -31,12 +31,6 @@ namespace MP3_YoutubeConverter
             });
         }
 
-        #region FUNCTION TO RESET THE YOUTUBE URL TEXT BOX BY CLICKING THE RIGHT ICON
-
-        private void youtubeUrlTextBox_IconRightClick(object sender, EventArgs e) => youtubeUrlTextBox.Clear();
-
-        #endregion
-
         #region FUNCTION TO BROWSE THE YOUTUBE URL
 
         private void browseBtn_Click(object sender, EventArgs e)
