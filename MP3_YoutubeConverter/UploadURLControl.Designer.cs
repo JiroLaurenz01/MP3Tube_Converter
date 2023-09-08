@@ -174,6 +174,7 @@
             this.youtubeUrlTextBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.youtubeUrlTextBox.TabIndex = 4;
             this.youtubeUrlTextBox.TextOffset = new System.Drawing.Point(10, 0);
+            this.youtubeUrlTextBox.IconRightClick += new System.EventHandler(this.youtubeUrlTextBox_IconRightClick);
             // 
             // UploadURLControl
             // 
