@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UploadURLControl));
             this.usernameBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.browseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -86,22 +86,23 @@
             this.guna2HtmlLabel1.TabIndex = 5;
             this.guna2HtmlLabel1.Text = "Please insert a valid Youtube URL";
             // 
-            // guna2Button1
+            // browseBtn
             // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 5;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.SteelBlue;
-            this.guna2Button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(672, 46);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(116, 45);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Start";
+            this.browseBtn.BackColor = System.Drawing.Color.Transparent;
+            this.browseBtn.BorderRadius = 5;
+            this.browseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.browseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.browseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.browseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.browseBtn.FillColor = System.Drawing.Color.SteelBlue;
+            this.browseBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F);
+            this.browseBtn.ForeColor = System.Drawing.Color.White;
+            this.browseBtn.Location = new System.Drawing.Point(672, 46);
+            this.browseBtn.Name = "browseBtn";
+            this.browseBtn.Size = new System.Drawing.Size(116, 45);
+            this.browseBtn.TabIndex = 6;
+            this.browseBtn.Text = "Browse";
+            this.browseBtn.Click += new System.EventHandler(this.browseBtn_Click);
             // 
             // guna2Elipse1
             // 
@@ -179,7 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Controls.Add(this.guna2ShadowPanel1);
-            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.browseBtn);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.usernameBox);
             this.Name = "UploadURLControl";
@@ -195,7 +196,7 @@
 
         private Guna.UI2.WinForms.Guna2TextBox usernameBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button browseBtn;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
