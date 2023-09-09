@@ -133,6 +133,8 @@ namespace MP3_YoutubeConverter
 
         #endregion
 
+        #region FUNCTION FOR BACK BUTTON, TO BE ABLE TO BACK IN MAIN FORM
+
         private void backBtn_Click(object sender, EventArgs e)
         {
             // Get a reference to the MainForm if it exists.
@@ -147,5 +149,7 @@ namespace MP3_YoutubeConverter
                 mainForm.addUserControl(uploadURLControl);
             }
         }
+
+        #endregion
     }
 }
