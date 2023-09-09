@@ -99,6 +99,7 @@ namespace MP3_YoutubeConverter
                             progressBar.Value = 100; // For example, you're 100% done here
                             loadingPercent.Text = "100%";
                             statusLabel.Text = "COMPLETED";
+                            convertAgainBtn.Enabled = true;
 
                             MessageBox.Show("Downloaded MP3 file: " + saveFileDialog.FileName);
                         }
