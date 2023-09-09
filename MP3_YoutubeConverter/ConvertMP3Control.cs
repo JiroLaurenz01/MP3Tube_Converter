@@ -76,6 +76,13 @@ namespace MP3_YoutubeConverter
 
                         if (saveFileDialog.ShowDialog() == DialogResult.OK) // If the user selects a save location.
                         {
+                            #region COMMENTS FOR EXPLANATIONS ↓ 
+                            /*using (var response = await httpClient.GetAsync(mp3StreamUrl, HttpCompletionOption.ResponseHeadersRead)): This line initiates an HTTP GET request using the httpClient to the mp3StreamUrl. It uses await to asynchronously wait for the response. The HttpCompletionOption.ResponseHeadersRead option specifies that the response headers should be read first before waiting for the response body.*/
+
+                            /*using (var stream = await response.Content.ReadAsStreamAsync()): This line reads the response content as a stream. It asynchronously reads the content of the HTTP response and assigns it to the stream variable. The await keyword ensures that this operation is performed asynchronously.*/
+
+                            /*using (var fs = File.OpenWrite(saveFileDialog.FileName)): This line opens a file for writing using the File.OpenWrite method. It creates or opens the file specified by saveFileDialog.FileName for writing the downloaded data. The fs variable represents the file stream, and it is wrapped in a using statement to ensure that it is properly closed and disposed of when it's no longer needed.*/
+                            #endregion
                             using (var response = await httpClient.GetAsync(mp3StreamUrl, HttpCompletionOption.ResponseHeadersRead))
                             using (var stream = await response.Content.ReadAsStreamAsync())
                             using (var fs = File.OpenWrite(saveFileDialog.FileName))
