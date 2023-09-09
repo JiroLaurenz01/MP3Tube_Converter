@@ -32,6 +32,8 @@ namespace MP3_YoutubeConverter
             YoutubeURLConversion(sender, e);
         }
 
+        #region FUNCTION TO CONVERT THE YOUTUBE URL TO MP3
+
         private async void YoutubeURLConversion(object sender, EventArgs e)
         {
             progressBar.Value = 0; // Reset progress bar at the start of the process
@@ -66,9 +68,12 @@ namespace MP3_YoutubeConverter
                         var mp3StreamUrl = audioStreamInfo.Url;
 
                         // Allow the user to choose the save location
-                        var saveFileDialog = new SaveFileDialog();
-                        saveFileDialog.FileName = $"{videoInfo.Title}.mp3";
-                        saveFileDialog.Filter = "MP3 Files (*.mp3)|*.mp3";
+                        SaveFileDialog saveFileDialog = new SaveFileDialog
+                        {
+                            FileName = $"{videoInfo.Title}.mp3",
+                            Filter = "MP3 Files (*.mp3)|*.mp3"
+                        };
+
                         if (saveFileDialog.ShowDialog() == DialogResult.OK)
                         {
                             using (var response = await httpClient.GetAsync(mp3StreamUrl, HttpCompletionOption.ResponseHeadersRead))
@@ -111,15 +116,15 @@ namespace MP3_YoutubeConverter
                     }
                 }
                 else
-                {
                     MessageBox.Show("No audio stream found for the video.");
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        #endregion
 
         private void backBtn_Click(object sender, EventArgs e)
         {
