@@ -189,6 +189,8 @@
             this.Controls.Add(this.browseBtn);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.youtubeUrlTextBox);
+            this.MaximumSize = new System.Drawing.Size(803, 365);
+            this.MinimumSize = new System.Drawing.Size(803, 365);
             this.Name = "UploadURLControl";
             this.Size = new System.Drawing.Size(803, 365);
             this.guna2ShadowPanel1.ResumeLayout(false);

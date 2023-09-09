@@ -158,6 +158,8 @@
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.guna2ContainerControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximumSize = new System.Drawing.Size(827, 550);
+            this.MinimumSize = new System.Drawing.Size(827, 303);
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -183,4 +185,5 @@
         public Guna.UI2.WinForms.Guna2Panel panelContainer;
     }
 }
+
 
