@@ -45,6 +45,9 @@ namespace MP3_YoutubeConverter
                 // Get video info.
                 var videoInfo = await youtubeClient.Videos.GetAsync(videoUrl);
 
+                // Show a message with the MP3 duration.
+                MessageBox.Show($"The duration of the MP3: {videoInfo.Duration}");
+
                 // Update progress bar and label to indicate 25% completion.
                 progressBar.Value = 25;
                 loadingPercent.Text = "25%";
