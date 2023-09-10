@@ -35,6 +35,7 @@
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.loadingPercent = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.progressBar = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -102,6 +103,10 @@
             this.progressBar.Text = "guna2ProgressBar1";
             this.progressBar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
+            // backgroundWorker
+            // 
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            // 
             // FlashingScreenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +126,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlashingScreenForm";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FlashingScreenForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +140,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel loadingPercent;
         private Guna.UI2.WinForms.Guna2ProgressBar progressBar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
     }
 }
