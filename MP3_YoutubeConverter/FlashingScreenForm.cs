@@ -22,6 +22,8 @@ namespace MP3_YoutubeConverter
             backgroundWorker.RunWorkerAsync();
         }
 
+        #region FUNCTIONS FOR FLASHING SCREEN
+
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             // This method runs in a separate background thread.
@@ -59,5 +61,6 @@ namespace MP3_YoutubeConverter
             });
         }
 
+        #endregion
     }
 }
