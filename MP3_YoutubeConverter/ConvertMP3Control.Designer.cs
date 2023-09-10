@@ -45,7 +45,7 @@
             this.convertAgainBtn.FillColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.convertAgainBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F);
             this.convertAgainBtn.ForeColor = System.Drawing.Color.SteelBlue;
-            this.convertAgainBtn.Location = new System.Drawing.Point(2, 1);
+            this.convertAgainBtn.Location = new System.Drawing.Point(2, 2);
             this.convertAgainBtn.Name = "convertAgainBtn";
             this.convertAgainBtn.Size = new System.Drawing.Size(132, 35);
             this.convertAgainBtn.TabIndex = 8;
