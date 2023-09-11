@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.labelMessage = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.containerControl = new Guna.UI2.WinForms.Guna2ContainerControl();
-            this.noticeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.containerControl.SuspendLayout();
+            this.noticeLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.containerControl = new Guna.UI2.WinForms.Guna2ContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.containerControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelMessage
@@ -51,18 +51,19 @@
             this.labelMessage.TabIndex = 0;
             this.labelMessage.Text = "Message Text";
             // 
-            // containerControl
+            // guna2Elipse1
             // 
-            this.containerControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(118)))), ((int)(((byte)(236)))));
-            this.containerControl.Controls.Add(this.noticeLabel);
-            this.containerControl.Controls.Add(this.guna2ControlBox1);
-            this.containerControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.containerControl.FillColor = System.Drawing.Color.Empty;
-            this.containerControl.Location = new System.Drawing.Point(0, 0);
-            this.containerControl.Name = "containerControl";
-            this.containerControl.Size = new System.Drawing.Size(367, 31);
-            this.containerControl.TabIndex = 4;
-            this.containerControl.Text = "guna2ContainerControl1";
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MP3_YoutubeConverter.Properties.Resources.informationLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 43);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(41, 39);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // noticeLabel
             // 
@@ -86,19 +87,18 @@
             this.guna2ControlBox1.Size = new System.Drawing.Size(39, 31);
             this.guna2ControlBox1.TabIndex = 0;
             // 
-            // guna2Elipse1
+            // containerControl
             // 
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MP3_YoutubeConverter.Properties.Resources.informationLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 39);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.containerControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(118)))), ((int)(((byte)(236)))));
+            this.containerControl.Controls.Add(this.noticeLabel);
+            this.containerControl.Controls.Add(this.guna2ControlBox1);
+            this.containerControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.containerControl.FillColor = System.Drawing.Color.Empty;
+            this.containerControl.Location = new System.Drawing.Point(0, 0);
+            this.containerControl.Name = "containerControl";
+            this.containerControl.Size = new System.Drawing.Size(367, 31);
+            this.containerControl.TabIndex = 4;
+            this.containerControl.Text = "guna2ContainerControl1";
             // 
             // AlertForm
             // 
@@ -115,9 +115,9 @@
             this.ShowInTaskbar = false;
             this.Text = "Form_Alert";
             this.TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.containerControl.ResumeLayout(false);
             this.containerControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +128,9 @@
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.Timer timer;
-        private Guna.UI2.WinForms.Guna2ContainerControl containerControl;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2ContainerControl containerControl;
         private Guna.UI2.WinForms.Guna2HtmlLabel noticeLabel;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
     }
 }
