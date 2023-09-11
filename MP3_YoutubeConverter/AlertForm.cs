@@ -81,7 +81,7 @@ namespace MP3_YoutubeConverter
 
         #region FUNCTION TO SHOW THE ALERT NOTIFICATION
 
-        public void ShowAlert(string msg, Type type)
+        private void ShowAlert(string msg, Type type)
         {
             // Method to display an alert message with a specified type.
 
@@ -158,6 +158,16 @@ namespace MP3_YoutubeConverter
 
             timer.Interval = 1;
             action = Action.close;
+        }
+
+        #endregion
+
+        #region FUNCTION TO DISPLAY THE ALERT NOTIFICATION
+
+        // This method is used to display an alert message using a custom AlertForm.
+        public void Alert(string msg, AlertForm.Type type)
+        {
+            ShowAlert(msg, type);
         }
 
         #endregion

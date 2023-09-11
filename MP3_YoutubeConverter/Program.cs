@@ -16,7 +16,7 @@ namespace MP3_YoutubeConverter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AlertForm());
+            Application.Run(new FlashingScreenForm());
         }
     }
 }
