@@ -18,8 +18,12 @@ namespace MP3_YoutubeConverter
 {
     public partial class UploadURLControl : UserControl
     {
+        #region FIELDS
+
         private readonly AlertForm alertForm = new AlertForm();
         private readonly YouTubeService youtubeService;
+
+        #endregion 
 
         public UploadURLControl()
         {

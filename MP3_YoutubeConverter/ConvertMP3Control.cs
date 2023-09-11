@@ -17,21 +17,22 @@ namespace MP3_YoutubeConverter
 {
     public partial class ConvertMP3Control : UserControl
     {
+        #region FIELDS
+
         // Property to store the Youtube URL
         public string YoutubeURL { get; set; }
 
         private readonly AlertForm alertForm = new AlertForm();
         private readonly YoutubeClient youtubeClient = new YoutubeClient();
 
+        #endregion
+
         public ConvertMP3Control()
         {
             InitializeComponent();
         }
 
-        private void ConvertMP3Control_Load(object sender, EventArgs e)
-        {
-            YoutubeURLConversion(sender, e);
-        }
+        private void ConvertMP3Control_Load(object sender, EventArgs e) => YoutubeURLConversion(sender, e);
 
         #region FUNCTION TO CONVERT THE YOUTUBE URL TO MP3
 
