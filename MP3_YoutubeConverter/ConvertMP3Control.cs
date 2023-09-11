@@ -20,6 +20,7 @@ namespace MP3_YoutubeConverter
         // Property to store the Youtube URL
         public string YoutubeURL { get; set; }
 
+        private readonly AlertForm alertForm = new AlertForm();
         private readonly YoutubeClient youtubeClient = new YoutubeClient();
 
         public ConvertMP3Control()
@@ -36,6 +37,8 @@ namespace MP3_YoutubeConverter
 
         private async void YoutubeURLConversion(object sender, EventArgs e)
         {
+            alertForm.Alert("Currently Converting", AlertForm.Type.Info);
+
             progressBar.Value = 0; // Reset progress bar at the start of the process.
 
             var videoUrl = YoutubeURL; // Store the YouTube video URL from a global variable.
@@ -45,8 +48,8 @@ namespace MP3_YoutubeConverter
                 // Get video info.
                 var videoInfo = await youtubeClient.Videos.GetAsync(videoUrl);
 
-                // Show a message with the MP3 duration.
-                MessageBox.Show($"The duration of the MP3: {videoInfo.Duration}");
+                // Show a message notification with the MP3 duration.
+                alertForm.Alert($"Duration of the MP3: {videoInfo.Duration}", AlertForm.Type.Info);
 
                 // Update progress bar and label to indicate 25% completion.
                 progressBar.Value = 25;
@@ -65,6 +68,7 @@ namespace MP3_YoutubeConverter
                 if (audioStreamInfo != null)
                 {
                     statusLabel.Text = "DOWNLOADING"; // Set label to indicate downloading is in progress.
+                    alertForm.Alert("Currently Downloading", AlertForm.Type.Info);
 
                     using (var httpClient = new HttpClient())
                     {
@@ -116,17 +120,19 @@ namespace MP3_YoutubeConverter
                             statusLabel.Text = "COMPLETED"; // Set label to indicate download is completed
                             convertAgainBtn.Enabled = true; // Enable a button for further conversion
 
-                            MessageBox.Show("Downloaded MP3 file: " + saveFileDialog.FileName); // Show a message with the downloaded file name.
+                            // Show a message notification with the downloaded file name.
+                            alertForm.Alert("Downloaded Successfully", AlertForm.Type.Success);
+                            MessageBox.Show("Downloaded MP3 file: " + videoInfo.Title);
                         }
                         else
                         {
                             backBtn_Click(sender, e); // Trigger a back button click event.
-                            MessageBox.Show("Download canceled by the user."); // Show a message indicating download cancellation.
+                            alertForm.Alert("Download Canceled by the User", AlertForm.Type.Info); // Show a message notification indicating download cancellation.
                         }
                     }
                 }
                 else
-                    MessageBox.Show("No audio stream found for the video."); // Show a message if no audio stream is found.
+                    alertForm.Alert("Missing Audio Stream", AlertForm.Type.Info); // Show a message notification if no audio stream is found.
             }
             catch (Exception ex)
             {
