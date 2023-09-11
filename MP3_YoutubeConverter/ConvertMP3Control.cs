@@ -38,8 +38,6 @@ namespace MP3_YoutubeConverter
 
         private async void YoutubeURLConversion(object sender, EventArgs e)
         {
-            alertForm.Alert("Currently Converting", AlertForm.Type.Info);
-
             progressBar.Value = 0; // Reset progress bar at the start of the process.
 
             var videoUrl = YoutubeURL; // Store the YouTube video URL from a global variable.
@@ -48,9 +46,6 @@ namespace MP3_YoutubeConverter
             {
                 // Get video info.
                 var videoInfo = await youtubeClient.Videos.GetAsync(videoUrl);
-
-                // Show a message notification with the MP3 duration.
-                alertForm.Alert($"Duration of the MP3: {videoInfo.Duration}", AlertForm.Type.Info);
 
                 // Update progress bar and label to indicate 25% completion.
                 progressBar.Value = 25;
@@ -69,7 +64,6 @@ namespace MP3_YoutubeConverter
                 if (audioStreamInfo != null)
                 {
                     statusLabel.Text = "DOWNLOADING"; // Set label to indicate downloading is in progress.
-                    alertForm.Alert("Currently Downloading", AlertForm.Type.Info);
 
                     using (var httpClient = new HttpClient())
                     {
