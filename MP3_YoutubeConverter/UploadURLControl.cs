@@ -20,7 +20,7 @@ namespace MP3_YoutubeConverter
     {
         #region FIELDS
 
-        private readonly AlertForm alertForm = new AlertForm();
+        private readonly Functionality functions = new Functionality();
         private readonly YouTubeService youtubeService;
 
         #endregion 
@@ -48,7 +48,7 @@ namespace MP3_YoutubeConverter
         {
             if (string.IsNullOrEmpty(youtubeUrlTextBox.Text))
             {
-                alertForm.Alert("Enter the Required URL", AlertForm.Type.Error);
+                functions.Alert("Enter the Required URL", AlertForm.Type.Error);
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace MP3_YoutubeConverter
 
             if (string.IsNullOrEmpty(videoId))
             {
-                alertForm.Alert("Invalid YouTube URL", AlertForm.Type.Error);
+                functions.Alert("Invalid YouTube URL", AlertForm.Type.Error);
                 return;
             }
 
@@ -126,10 +126,10 @@ namespace MP3_YoutubeConverter
                     // Display the video title in the titleBox control.
                     titleBox.Text = videoTitle;
 
-                    alertForm.Alert("Loaded Successfully", AlertForm.Type.Success);
+                    functions.Alert("Loaded Successfully", AlertForm.Type.Success);
                 }
                 else
-                    alertForm.Alert("Video Response is Empty", AlertForm.Type.Error);
+                    functions.Alert("Video Response is Empty", AlertForm.Type.Error);
             }
             catch (Exception ex)
             {

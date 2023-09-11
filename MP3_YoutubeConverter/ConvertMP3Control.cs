@@ -22,7 +22,7 @@ namespace MP3_YoutubeConverter
         // Property to store the Youtube URL
         public string YoutubeURL { get; set; }
 
-        private readonly AlertForm alertForm = new AlertForm();
+        private readonly Functionality functions = new Functionality();
         private readonly YoutubeClient youtubeClient = new YoutubeClient();
 
         #endregion
@@ -38,6 +38,8 @@ namespace MP3_YoutubeConverter
 
         private async void YoutubeURLConversion(object sender, EventArgs e)
         {
+            functions.Alert("Currently Converting", AlertForm.Type.Info);
+
             progressBar.Value = 0; // Reset progress bar at the start of the process.
 
             var videoUrl = YoutubeURL; // Store the YouTube video URL from a global variable.
@@ -46,6 +48,8 @@ namespace MP3_YoutubeConverter
             {
                 // Get video info.
                 var videoInfo = await youtubeClient.Videos.GetAsync(videoUrl);
+
+                functions.Alert($"MP3 Duration: {videoInfo.Duration}", AlertForm.Type.Info);
 
                 // Update progress bar and label to indicate 25% completion.
                 progressBar.Value = 25;
@@ -63,8 +67,6 @@ namespace MP3_YoutubeConverter
 
                 if (audioStreamInfo != null)
                 {
-                    statusLabel.Text = "DOWNLOADING"; // Set label to indicate downloading is in progress.
-
                     using (var httpClient = new HttpClient())
                     {
                         var mp3StreamUrl = audioStreamInfo.Url; // Get the URL of the audio stream.
@@ -78,6 +80,9 @@ namespace MP3_YoutubeConverter
 
                         if (saveFileDialog.ShowDialog() == DialogResult.OK) // If the user selects a save location.
                         {
+                            statusLabel.Text = "DOWNLOADING"; // Set label to indicate downloading is in progress.
+                            functions.Alert("Currently Downloading", AlertForm.Type.Info);
+
                             #region COMMENTS FOR EXPLANATIONS ↓ 
                             /*using (var response = await httpClient.GetAsync(mp3StreamUrl, HttpCompletionOption.ResponseHeadersRead)): This line initiates an HTTP GET request using the httpClient to the mp3StreamUrl. It uses await to asynchronously wait for the response. The HttpCompletionOption.ResponseHeadersRead option specifies that the response headers should be read first before waiting for the response body.*/
 
@@ -116,18 +121,18 @@ namespace MP3_YoutubeConverter
                             convertAgainBtn.Enabled = true; // Enable a button for further conversion
 
                             // Show a message notification with the downloaded file name.
-                            alertForm.Alert("Downloaded Successfully", AlertForm.Type.Success);
+                            functions.Alert("Downloaded Successfully", AlertForm.Type.Success);
                             MessageBox.Show("Downloaded MP3 file: " + videoInfo.Title);
                         }
                         else
                         {
                             backBtn_Click(sender, e); // Trigger a back button click event.
-                            alertForm.Alert("Download Canceled by the User", AlertForm.Type.Info); // Show a message notification indicating download cancellation.
+                            functions.Alert("Download Canceled by the User", AlertForm.Type.Info); // Show a message notification indicating download cancellation.
                         }
                     }
                 }
                 else
-                    alertForm.Alert("Missing Audio Stream", AlertForm.Type.Info); // Show a message notification if no audio stream is found.
+                    functions.Alert("Missing Audio Stream", AlertForm.Type.Info); // Show a message notification if no audio stream is found.
             }
             catch (Exception ex)
             {

@@ -134,6 +134,7 @@
     <Compile Include="FlashingScreenForm.Designer.cs">
       <DependentUpon>FlashingScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Functionality.cs" />
     <Compile Include="LoadingScreenForm.cs">
       <SubType>Form</SubType>
     </Compile>
