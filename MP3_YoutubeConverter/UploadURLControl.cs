@@ -65,6 +65,9 @@ namespace MP3_YoutubeConverter
             _ = AccessTheYoutubeServiceAsync(videoId);
 
             ResizeMainForm();
+
+            AlertForm alertForm = new AlertForm();
+            alertForm.Alert("Loaded Successfully", AlertForm.Type.Success);
         }
 
         #endregion     
