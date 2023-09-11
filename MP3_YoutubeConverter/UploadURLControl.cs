@@ -18,6 +18,7 @@ namespace MP3_YoutubeConverter
 {
     public partial class UploadURLControl : UserControl
     {
+        AlertForm alertForm = new AlertForm();
         private readonly YouTubeService youtubeService;
 
         public UploadURLControl()
@@ -43,7 +44,7 @@ namespace MP3_YoutubeConverter
         {
             if (string.IsNullOrEmpty(youtubeUrlTextBox.Text))
             {
-                MessageBox.Show("Please enter the required URL.");
+                alertForm.Alert("Enter the Required URL", AlertForm.Type.Error);
                 return;
             }
 
@@ -55,7 +56,7 @@ namespace MP3_YoutubeConverter
 
             if (string.IsNullOrEmpty(videoId))
             {
-                MessageBox.Show("Invalid YouTube URL.");
+                alertForm.Alert("Invalid YouTube URL", AlertForm.Type.Error);
                 return;
             }
 
@@ -65,9 +66,6 @@ namespace MP3_YoutubeConverter
             _ = AccessTheYoutubeServiceAsync(videoId);
 
             ResizeMainForm();
-
-            AlertForm alertForm = new AlertForm();
-            alertForm.Alert("Loaded Successfully", AlertForm.Type.Success);
         }
 
         #endregion     
@@ -123,9 +121,11 @@ namespace MP3_YoutubeConverter
 
                     // Display the video title in the titleBox control.
                     titleBox.Text = videoTitle;
+
+                    alertForm.Alert("Loaded Successfully", AlertForm.Type.Success);
                 }
                 else
-                    MessageBox.Show("Video response is empty.");
+                    alertForm.Alert("Video Response is Empty", AlertForm.Type.Error);
             }
             catch (Exception ex)
             {
