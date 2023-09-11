@@ -51,6 +51,10 @@
             this.labelMessage.TabIndex = 0;
             this.labelMessage.Text = "Message Text";
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.TargetControl = this;
