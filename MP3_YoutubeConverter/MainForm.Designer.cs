@@ -33,14 +33,14 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.containerControls = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panelContainer = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ContainerControl1.SuspendLayout();
+            this.containerControls.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,17 +71,19 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 31);
             this.guna2ControlBox2.TabIndex = 1;
             // 
-            // guna2ContainerControl1
+            // containerControls
             // 
-            this.guna2ContainerControl1.Controls.Add(this.guna2ControlBox2);
-            this.guna2ContainerControl1.Controls.Add(this.guna2ControlBox1);
-            this.guna2ContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(230)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
-            this.guna2ContainerControl1.Size = new System.Drawing.Size(827, 31);
-            this.guna2ContainerControl1.TabIndex = 0;
-            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
+            this.containerControls.Controls.Add(this.guna2ControlBox2);
+            this.containerControls.Controls.Add(this.guna2ControlBox1);
+            this.containerControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.containerControls.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(153)))), ((int)(((byte)(230)))));
+            this.containerControls.Location = new System.Drawing.Point(0, 0);
+            this.containerControls.Name = "containerControls";
+            this.containerControls.Size = new System.Drawing.Size(827, 31);
+            this.containerControls.TabIndex = 0;
+            this.containerControls.Text = "guna2ContainerControl1";
+            this.containerControls.MouseDown += new System.Windows.Forms.MouseEventHandler(this.containerControls_MouseDown);
+            this.containerControls.MouseMove += new System.Windows.Forms.MouseEventHandler(this.containerControls_MouseMove);
             // 
             // mainPanel
             // 
@@ -157,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(827, 303);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.guna2ContainerControl1);
+            this.Controls.Add(this.containerControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(827, 550);
@@ -166,7 +168,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MP3Tube Converter";
-            this.guna2ContainerControl1.ResumeLayout(false);
+            this.containerControls.ResumeLayout(false);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -178,7 +180,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
+        private Guna.UI2.WinForms.Guna2ContainerControl containerControls;
         private Guna.UI2.WinForms.Guna2Panel mainPanel;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
