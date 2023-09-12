@@ -7,7 +7,7 @@
     <ProjectGuid>{D090AD88-3008-4722-A5AB-B275192603AE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MP3_YoutubeConverter</RootNamespace>
-    <AssemblyName>MP3_YoutubeConverter</AssemblyName>
+    <AssemblyName>MP3Tube Converter</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>music-file.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AngleSharp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
@@ -217,6 +220,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warningLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="music-file.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
